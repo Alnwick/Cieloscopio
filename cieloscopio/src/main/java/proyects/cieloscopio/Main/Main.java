@@ -22,6 +22,8 @@ public class Main {
         var json = useAPI.getData(URL_BASE + ciudad.replace(" ", "+") + API_KEY + URL_COMP);
         JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
 
+        System.out.println(jsonObject);
+
         cityData = new CityData(jsonObject);
         cityData.toString();
     }
