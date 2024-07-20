@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import proyects.cieloscopio.Main.Main;
 
+import java.io.IOException;
+
 @SpringBootApplication
 public class CieloscopioApplication implements CommandLineRunner {
 
@@ -13,7 +15,7 @@ public class CieloscopioApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) {
+    public void run(String... args) throws IOException, InterruptedException {
         Main main = new Main();
         main.menu();
     }

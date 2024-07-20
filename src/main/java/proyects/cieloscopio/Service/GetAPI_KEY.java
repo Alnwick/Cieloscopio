@@ -1,15 +1,10 @@
 package proyects.cieloscopio.Service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-@Component
 public class GetAPI_KEY {
 
-    @Value("${API_KEY}")
-    private String API_KEY;
+    private String API_KEY = "0ecf95ec00bd6412a66065236a76294d";
 
-    public String getAPI_KEY() {
+    public String get() {
         return API_KEY;
     }
 }

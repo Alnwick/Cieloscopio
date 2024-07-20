@@ -8,13 +8,16 @@ import java.io.IOException;
 
 public class UseAPIWeather {
     UseAPI useAPI = new UseAPI();
+    GetAPI_KEY getAPI_KEY = new GetAPI_KEY();
+    String link;
 
-    public WeatherAPIModel getWeatherAPI(String API) throws IOException, InterruptedException {
+    public WeatherAPIModel getWeatherAPI(double latitude, double lenght) throws IOException, InterruptedException {
+        link = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + lenght + "&appid=" + getAPI_KEY.get()+"&units=metric&lang=es";
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
 
-        return gson.fromJson(useAPI.getUseAPI(API), WeatherAPIModel.class);
+        return gson.fromJson(useAPI.getUseAPI(link), WeatherAPIModel.class);
     }
 
 }
