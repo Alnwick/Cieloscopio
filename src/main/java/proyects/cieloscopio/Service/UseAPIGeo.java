@@ -17,11 +17,8 @@ public class UseAPIGeo {
                 .setPrettyPrinting()
                 .create();
 
-        System.out.println(link);
-        System.out.println(gson);
-
         var cities = gson.fromJson(useAPI.getUseAPI(link), GeoAPIModel[].class);
-        System.out.println(cities[0]);
+
         return cities[0];
     }
 

@@ -8,40 +8,46 @@ public class Main {
     public void menu() throws IOException, InterruptedException {
         DataCity dataCity = new DataCity();
         int response;
-        Scanner scan= new Scanner(System.in);
+        Scanner scanOne = new Scanner(System.in);
+        Scanner scanTwo = new Scanner(System.in);
 
         do{
             System.out.println(
-                    "\n\n-------MENU CIELOSCOPIO-------" +
+                    "\n-------MENU CIELOSCOPIO-------" +
                             "\n1. Ciudad de Mexico" +
                             "\n2. Bogota" +
                             "\n3. Buenos Aires" +
                             "\n4. Monterrey" +
                             "\n5. Washington" +
                             "\n6. Escoger ciudad" +
-                            "\n7. Salir");
-            response = scan.nextInt();
+                            "\n7. Salir" +
+                            "\nSeleccione opcion: ");
+            response = scanOne.nextInt();
 
             switch(response){
                 case 1:
-                    dataCity.getDataCity("Ciudad de Mexico");
+                    System.out.println(dataCity.getDataCity("Ciudad de Mexico"));
                     break;
                 case 2:
-                    dataCity.getDataCity("Bogota");
+                    System.out.println(dataCity.getDataCity("Bogota"));
                     break;
                 case 3:
-                    dataCity.getDataCity("Buenos Aires");
+                    System.out.println(dataCity.getDataCity("Buenos Aires"));
                     break;
                 case 4:
-                    dataCity.getDataCity("Monterrey");
+                    System.out.println(dataCity.getDataCity("Monterrey"));
                     break;
                 case 5:
-                    dataCity.getDataCity("Washington");
+                    System.out.println(dataCity.getDataCity("Washington"));
                     break;
                 case 6:
                     System.out.println("\nEscriba la ciudad: ");
-                    String city = scan.nextLine();
-                    dataCity.getDataCity(city);
+                    String city = scanTwo.nextLine();
+                    try {
+                        System.out.println(dataCity.getDataCity(city));
+                    }catch (IllegalArgumentException | ArrayIndexOutOfBoundsException e){
+                        System.out.println("Datos no encontrados o ciudad no existente.");
+                    }
                     break;
                 case 7:
                     System.out.println("Cerrando cieloscopio...");

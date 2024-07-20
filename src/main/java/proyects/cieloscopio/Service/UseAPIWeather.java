@@ -17,6 +17,7 @@ public class UseAPIWeather {
                 .setPrettyPrinting()
                 .create();
 
+
         return gson.fromJson(useAPI.getUseAPI(link), WeatherAPIModel.class);
     }
 

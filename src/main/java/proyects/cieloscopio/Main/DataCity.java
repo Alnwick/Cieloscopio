@@ -33,22 +33,20 @@ public class DataCity {
         formatHour.setTimeZone(TimeZone.getDefault());
 
         GeoAPIModel geoAPIModel = useAPIGeo.getGeoAPI(city);
-        System.out.println(geoAPIModel);
-        WeatherAPIModel weatherAPIModel = useAPIWeather.getWeatherAPI(geoAPIModel.latitude(), geoAPIModel.length());
-        weatherModel = weatherAPIModel.weatherMain();
+        WeatherAPIModel weatherAPIModel = useAPIWeather.getWeatherAPI(geoAPIModel.lat(), geoAPIModel.lon());
+        weatherModel = weatherAPIModel.weather();
 
-        System.out.println(weatherAPIModel);
-        nameCity = weatherAPIModel.cityName();
-        currentTemperature = weatherAPIModel.mainData().temperature();
-        minTemperature = weatherAPIModel.mainData().minTemperature();
-        maxTemperature = weatherAPIModel.mainData().maxTemperature();
-        weatherCondition = weatherModel[0].descWeather();
+        nameCity = geoAPIModel.name();
+        currentTemperature = weatherAPIModel.main().temp();
+        minTemperature = weatherAPIModel.main().temp_min();
+        maxTemperature = weatherAPIModel.main().temp_max();
+        weatherCondition = weatherModel[0].description();
         dateHour = formatHour.format(dateFull);
         dateDay = formatDay.format(dateFull);
-        humidity = weatherAPIModel.mainData().humidity();
+        humidity = weatherAPIModel.main().humidity();
 
 
-        return "\n\nDatos de la ciudad" +
+        return "\nDatos de la ciudad" +
                 "\nCiudad: " + nameCity +
                 "\nFecha: " + dateDay +
                 "\nHora: " + dateHour +
