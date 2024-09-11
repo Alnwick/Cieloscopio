@@ -22,6 +22,7 @@ public class DataCity {
         String dateDay;
         String dateHour;
         int humidity;
+
         UseAPIGeo useAPIGeo = new UseAPIGeo();
         UseAPIWeather useAPIWeather = new UseAPIWeather();
         WeatherModel[] weatherModel;
